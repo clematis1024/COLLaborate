@@ -1,0 +1,98 @@
+<html lang="en">
+<body>
+    <div style="display: flex; justify-content: center;">
+        <img src="logo.png" alt="COLLaborate Logo">
+    </div>
+
+  <!-- 1. School Selection Input -->
+  <div class="form-group">
+    <label for="college-choice">Select your community or school:</label>
+    <input list="us-colleges" id="college-choice" name="college-choice" placeholder="Type to search..." disabled>
+    <datalist id="us-colleges"></datalist>
+  </div>
+
+  <!-- 2. Domain / Email Suffix Dropdown -->
+  <div class="form-group">
+    <label id="email-label" for="email-domain">Select your email:</label>
+    <select id="email-domain" name="email-domain" disabled>
+      <option value="">Choose a school first...</option>
+    </select>
+  </div>
+
+  <a href="home.html">
+  <button type="button">Verify email (not implemented)</button>
+  </a>
+
+  <!-- 3. JavaScript Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const collegeInput = document.getElementById('college-choice');
+      const dataList = document.getElementById('us-colleges');
+      const domainSelect = document.getElementById('email-domain');
+      const emailLabel = document.getElementById('email-label');
+      
+      let collegeDataMap = {};
+
+      // Pull full dataset dynamically on load
+      fetch('https://githubusercontent.com')
+        .then(res => res.json())
+        .then(data => {
+          // Filter for US entries
+          const usColleges = data.filter(item => item.country === 'United States');
+          
+          // Sort alphabetically by school name
+          usColleges.sort((a, b) => a.name.localeCompare(b.name));
+
+          const fragment = document.createDocumentFragment();
+          
+          usColleges.forEach(college => {
+            // Map the exact name to its associated domains array
+            collegeDataMap[college.name] = college.domains;
+
+            const option = document.createElement('option');
+            option.value = college.name;
+            fragment.appendChild(option);
+          });
+          
+          dataList.appendChild(fragment);
+          collegeInput.removeAttribute('disabled'); 
+        })
+        .catch(err => console.error('Error loading colleges dataset:', err));
+
+      // Listen for when a user selects or types a school
+      collegeInput.addEventListener('input', (e) => {
+        const selectedSchool = e.target.value;
+        
+        // Clear previous options
+        domainSelect.innerHTML = '';
+
+        // Check if the input exactly matches a valid school from our map
+        if (collegeDataMap[selectedSchool]) {
+          const domains = collegeDataMap[selectedSchool];
+
+          // Dynamic label update matching your layout example (e.g., "Select your email (@rit.edu):")
+          emailLabel.textContent = `Select your email (@${domains[0]}):`;
+
+          // Populate the dropdown with the domain choices
+          domains.forEach(domain => {
+            const opt = document.createElement('option');
+            opt.value = domain;
+            opt.textContent = `@${domain}`;
+            domainSelect.appendChild(opt);
+          });
+
+          domainSelect.removeAttribute('disabled');
+        } else {
+          // Reset to default state if input is cleared or partial
+          emailLabel.textContent = 'Select your email:';
+          const defaultOpt = document.createElement('option');
+          defaultOpt.value = '';
+          defaultOpt.textContent = 'Choose a school first...';
+          domainSelect.appendChild(defaultOpt);
+          domainSelect.setAttribute('disabled', 'true');
+        }
+      });
+    });
+    </script>
+</body>
+</html>
