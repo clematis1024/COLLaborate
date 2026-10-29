@@ -1,28 +1,29 @@
 <html>
-    <div style="display: flex; justify-content: center;">
-        <img src="logo.png" alt="COLLaborate Logo">
-    </div>
-    <form>
+    <body>
 
-    <label for="school-select">Select your community or school:</label>
-    <select id="school-select" name="school" required>
-        <option value="" disabled selected>Choose a school...</option>
-        <option value="rit">Rochester Institute of Technology</option>
-        <option value="roosevelt">Roosevelt University</option>
-        <option value="rollins">Rollins College</option>
-        <option value="rwu">Roger Williams University</option>
-    </select>
+        <div class="logo-container"> 
+            <img src="logo.png" alt="COLLaborate Logo"> 
+        </div> 
 
-    <br><br>
+        <form action="home.html" method="GET"> 
+            <div class="form-group">
+                <label for="school-select">Select your community or school:</label> 
+                <select id="school-select" name="school" required> 
+                    <option value="" disabled selected>Choose a school...</option> 
+                    <option value="rit">Rochester Institute of Technology</option> 
+                    <option value="roosevelt">Roosevelt University</option> 
+                    <option value="rollins">Rollins College</option> 
+                    <option value="rwu">Roger Williams University</option> 
+                </select> 
+            </div>
 
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" placeholder="Enter your email...">
+            <div class="form-group">
+                <label for="email">Email:</label> 
+                <input type="email" id="email" name="email" placeholder="Enter your email..." required> 
+            </div>
 
-    <br><br>
-    </form>
+            <button type="submit" class="btn">Verify email</button> 
+        </form> 
 
-    <a href="home.html">
-        <button>Verify email (not implemented)</button>
-    </a>
-
+    </body>
 </html>
