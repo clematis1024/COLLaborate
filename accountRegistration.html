@@ -1,98 +1,47 @@
-<html lang="en">
-<body>
+<html>
     <div style="display: flex; justify-content: center;">
         <img src="logo.png" alt="COLLaborate Logo">
     </div>
-
-  <!-- 1. School Selection Input -->
-  <div class="form-group">
-    <label for="college-choice">Select your community or school:</label>
-    <input list="us-colleges" id="college-choice" name="college-choice" placeholder="Type to search..." disabled>
-    <datalist id="us-colleges"></datalist>
-  </div>
-
-  <!-- 2. Domain / Email Suffix Dropdown -->
-  <div class="form-group">
-    <label id="email-label" for="email-domain">Select your email:</label>
-    <select id="email-domain" name="email-domain" disabled>
-      <option value="">Choose a school first...</option>
+    <form>
+    <!-- 1. Selection element -->
+    <label for="school-select">Select your community or school:</label>
+    <select id="school-select" name="school" required>
+        <option value="" disabled selected>Choose a school...</option>
+        <option value="rit">Rochester Institute of Technology</option>
+        <option value="roosevelt">Roosevelt University</option>
+        <option value="rollins">Rollins College</option>
+        <option value="rwu">Roger Williams University</option>
     </select>
-  </div>
 
-  <a href="home.html">
-  <button type="button">Verify email (not implemented)</button>
-  </a>
+    <br><br>
 
-  <!-- 3. JavaScript Logic -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const collegeInput = document.getElementById('college-choice');
-      const dataList = document.getElementById('us-colleges');
-      const domainSelect = document.getElementById('email-domain');
-      const emailLabel = document.getElementById('email-label');
-      
-      let collegeDataMap = {};
-
-      // Pull full dataset dynamically on load
-      fetch('https://githubusercontent.com')
-        .then(res => res.json())
-        .then(data => {
-          // Filter for US entries
-          const usColleges = data.filter(item => item.country === 'United States');
-          
-          // Sort alphabetically by school name
-          usColleges.sort((a, b) => a.name.localeCompare(b.name));
-
-          const fragment = document.createDocumentFragment();
-          
-          usColleges.forEach(college => {
-            // Map the exact name to its associated domains array
-            collegeDataMap[college.name] = college.domains;
-
-            const option = document.createElement('option');
-            option.value = college.name;
-            fragment.appendChild(option);
-          });
-          
-          dataList.appendChild(fragment);
-          collegeInput.removeAttribute('disabled'); 
-        })
-        .catch(err => console.error('Error loading colleges dataset:', err));
-
-      // Listen for when a user selects or types a school
-      collegeInput.addEventListener('input', (e) => {
-        const selectedSchool = e.target.value;
+    <!-- 2. Pure HTML context structure -->
+    <label for="email-select">Select your email:</label>
+    <select id="email-select" name="email_domain" required>
+        <option value="" disabled selected>Choose a domain...</option>
         
-        // Clear previous options
-        domainSelect.innerHTML = '';
+        <!-- Grouped values allow users to clearly scan and match their selection -->
+        <optgroup label="Rochester Institute of Technology">
+        <option value="rit.edu">@rit.edu</option>
+        </optgroup>
+        
+        <optgroup label="Roosevelt University">
+        <option value="roosevelt.edu">@roosevelt.edu</option>
+        </optgroup>
+        
+        <optgroup label="Rollins College">
+        <option value="rollins.edu">@rollins.edu</option>
+        </optgroup>
+        
+        <optgroup label="Roger Williams University">
+        <option value="rwu.edu">@rwu.edu</option>
+        </optgroup>
+    </select>
 
-        // Check if the input exactly matches a valid school from our map
-        if (collegeDataMap[selectedSchool]) {
-          const domains = collegeDataMap[selectedSchool];
+    <br><br>
 
-          // Dynamic label update matching your layout example (e.g., "Select your email (@rit.edu):")
-          emailLabel.textContent = `Select your email (@${domains[0]}):`;
-
-          // Populate the dropdown with the domain choices
-          domains.forEach(domain => {
-            const opt = document.createElement('option');
-            opt.value = domain;
-            opt.textContent = `@${domain}`;
-            domainSelect.appendChild(opt);
-          });
-
-          domainSelect.removeAttribute('disabled');
-        } else {
-          // Reset to default state if input is cleared or partial
-          emailLabel.textContent = 'Select your email:';
-          const defaultOpt = document.createElement('option');
-          defaultOpt.value = '';
-          defaultOpt.textContent = 'Choose a school first...';
-          domainSelect.appendChild(defaultOpt);
-          domainSelect.setAttribute('disabled', 'true');
-        }
-      });
-    });
-    </script>
-</body>
+    <a href="home.html">
+            <button>Verify email (not implemented)</button>
+    </a>
+    </form>
 </html>
