@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<style type="text/css">
+    p {
+        margin: auto;
+    }
+    .busy {
+        display: flex;
+        justify-content: center;
+        background-color: tomato;
+        border: 1px black solid;
+    }
+    .open {
+        display: flex;
+        justify-content: center;
+        background-color:lightblue;
+        border: 1px black solid;
+    }
+</style>
+
+<head>
+    <title>COLLaborate - Schedule</title>
+</head>
+
+<body>
+    <header>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="right" valign="top">
+                    <p>Logged in as: dxkvse@rit.edu</p>
+                    <a href="accountManage.html">
+                        <img src="pfp.png" alt="Account" width="100">
+                    </a>
+                </td>
+            </tr> 
+        </table>
+
+        <div style="display: flex; justify-content: center;">
+        <h2>Personal Availability</h2>
+        </div>
+    </header>
+    <div style="padding-top: 20px; display: flex; justify-content: center;"><h1>Feburary</h1></div>
+    <div style="margin-top: -20px; width: 100%; display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: 1fr repeat(4, 3fr);">
+        <div style="background-color: #dedede; border: 2px #333 solid; grid-column: 1 / 8; display: grid; grid-template-columns: repeat(7, 1fr);">
+            <p>Sunday</p>
+            <p>Monday</p>
+            <p>Tuesday</p>
+            <p>Wednesday</p>
+            <p>Thursday</p>
+            <p>Friday</p>
+            <p>Saturday</p>
+        </div>
+        <div class="open"><p>1</p></div>
+        <div class="open"><p>2</p></div>
+        <div class="open"><p>3</p></div>
+        <div class="open"><p>4</p></div>
+        <div class="open"><p>5</p></div>
+        <div class="busy"><p>6</p></div>
+        <div class="busy"><p>7</p></div>
+
+        <div class="busy"><p>8</p></div>
+        <div class="open"><p>9</p></div>
+        <div class="open"><p>10</p></div>
+        <div class="open"><p>11</p></div>
+        <div class="open"><p>12</p></div>
+        <div class="open"><p>13</p></div>
+        <div class="busy"><p>14</p></div>
+
+        <div class="open"><p>15</p></div>
+        <div class="open"><p>16</p></div>
+        <div class="open"><p>17</p></div>
+        <div class="open"><p>18</p></div>
+        <div class="open"><p>19</p></div>
+        <div class="open"><p>20</p></div>
+        <div class="busy"><p>21</p></div>
+
+        <div class="busy"><p>22</p></div>
+        <div class="busy"><p>23</p></div>
+        <div class="open"><p>24</p></div>
+        <div class="open"><p>25</p></div>
+        <div class="open"><p>26</p></div>
+        <div class="open"><p>27</p></div>
+        <div class="busy"><p>28</p></div>
+    </div>
+</body>
+
+</html>
