@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<style type="text/css">
+    .item {
+        min-width: 200px;
+        margin: auto;
+        background-color: #eee;
+        border-top: 1px solid black;
+        padding: 10px 5px;
+    }
+    h4 {
+        background-color: #bdbdbd;
+        margin: auto;
+        width: 100%;
+        border: 1px solid #767676;
+        text-align: center;
+    }
+    .busy {
+        display: flex;
+        justify-content: center;
+        background-color: #eee;
+        border: 1px black solid;
+    }
+    .scheduled {
+        display: flex;
+        justify-content: center;
+        background-color: gold;
+        border: 1px black solid;
+    }
+    .open {
+        display: flex;
+        justify-content: center;
+        background-color: lightblue;
+        border: 1px black solid;
+    }
+    button {
+        background-color: #c32424;
+        border-radius: 10px;
+        padding: 5px;
+        min-width: 50px;
+    }
+</style>
+
+<head>
+    <title>COLLaborate - Schedule</title>
+</head>
+
+<body>
+    <header>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="right" valign="top">
+                    <p>Logged in as: dxkvse@rit.edu</p>
+                    <a href="accountManage.html">
+                        <img src="pfp.png" alt="Account" width="100">
+                    </a>
+                </td>
+            </tr> 
+        </table>
+
+        <a href="groupHome.html"><button>Back</button></a>
+        <div style="display: flex; justify-content: center;">
+        <h2>Group: The Silly Goobers</h2>
+        </div>
+        <div style="display: flex; justify-content: center; padding: 10px 0px;"><input placeholder="Add new item..."/></div>
+    </header>
+    <div style="display: flex; justify-content: space-evenly;">
+        <div>
+            <h4>To Do</h4>
+            <p class="item">🔴Presentation slides</p>
+            <p class="item">🔴Final project review meeting</p>
+            <p class="item">🔴Post-mortem meeting</p>
+        </div>
+        <div>
+            <h4>In Progress</h4>
+            <p class="item">🔴Project tagline</p>
+        </div>
+        <div>
+            <h4>Review</h4>
+            <p class="item">🔴Finalize UI</p>
+            <p class="item">🔴Presentation script</p>
+            <p class="item">🟢Mission statement</p>
+            <p class="item">🟢Meet rubric requirements</p>
+            <p class="item">🟢Create demo</p>
+        </div>
+        <div>
+            <h4>Complete</h4>
+            <p class="item">🟢Design logo</p>
+            <p class="item">🟢Submit plan</p>
+            <p class="item">🟢Decide on idea</p>
+        </div>
+    </div>
+</body>
+
+</html>
