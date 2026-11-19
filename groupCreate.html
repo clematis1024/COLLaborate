@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COLLaborate - Create Group</title>
+    <style>
+        button, .button {
+            display: inline-block;
+            background-color: #4285f4;
+            color: black;
+            border: 1px solid #777;
+            border-radius: 10px;
+            padding: 15px 32px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top"><a href="groupHome.html" style="color: red;">Close without saving...</a></td>
+            <td align="right" valign="top">
+                <p>Logged in as: dxkvse@rit.edu</p>
+                <a href="accountManage.html">
+                    <img src="pfp.png" alt="Account" width="100">
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <form action="group.html" method="GET">
+        <div style="display: flex; justify-content: space-around; gap: 30px; flex-wrap: wrap; font-size: 24px;">
+            <p>
+                <label for="group-name">Group name:</label><br><br>
+                <input type="text" id="group-name" name="group-name" placeholder="The silly goobers" required style="padding: 15px; font-size: 20px;">
+            </p>
+            <p>
+                <label for="end-date">Project end date (disbands group):</label><br><br>
+                <input type="date" id="end-date" name="end-date" required style="padding: 15px; font-size: 20px;">
+            </p>
+        </div>
+
+        <div style="display: flex; justify-content: space-around; align-items: center; gap: 30px; flex-wrap: wrap; font-size: 24px;">
+            <p>
+                <label for="member">Invite members (display name or email):</label><br><br>
+                <input type="text" id="member" name="member" list="members" placeholder="Alex" style="padding: 15px; font-size: 20px;">
+                <datalist id="members">
+                    <option value="Alex Smith (ajs8345@rit.edu)"></option>
+                    <option value="Alex Martin (apm9023@rit.edu)"></option>
+                </datalist>
+            </p>
+            <p>or</p>
+            <div>
+                <p>Invite members by class:</p>
+                <a class="button" href="classSelect.html">Classes</a>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 40px;">
+            <button type="submit">Create Group</button>
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COLLaborate - Edit Group</title>
+</head>
+<body>
+    <p><a href="group.html" style="color: red;">Close without saving...</a></p>
+
+    <form action="group.html" method="GET">
+        <div style="margin-top: 60px; display: flex; justify-content: space-around; gap: 30px; flex-wrap: wrap; font-size: 24px;">
+            <p>
+                <label for="group-name">Group name:</label><br><br>
+                <input type="text" id="group-name" name="group-name" value="The silly goobers" required style="padding: 15px; font-size: 20px;">
+            </p>
+            <p>
+                <label for="end-date">Project end date (disbands group):</label><br><br>
+                <input type="date" id="end-date" name="end-date" style="padding: 15px; font-size: 20px;">
+            </p>
+        </div>
+
+        <h2 style="text-align: center;">Members:</h2>
+        <table width="70%" align="center" border="1" cellpadding="15" cellspacing="0" style="font-size: 24px;">
+            <tr>
+                <td>Alex Smith (ajs8345@rit.edu)</td>
+                <td>
+                    <label for="remove-alex">Vote to Remove?</label>
+                    <input type="checkbox" id="remove-alex" name="remove" value="ajs8345@rit.edu">
+                </td>
+            </tr>
+            <tr>
+                <td>John Smith (jos3845@rit.edu)</td>
+                <td>
+                    <label for="remove-john">Vote to Remove?</label>
+                    <input type="checkbox" id="remove-john" name="remove" value="jos3845@rit.edu">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <details>
+                        <summary>Add more...</summary>
+                        <p>
+                            <label for="member">Display name or email:</label>
+                            <input type="text" id="member" name="member" list="members">
+                            <datalist id="members">
+                                <option value="Alex Martin (apm9023@rit.edu)"></option>
+                            </datalist>
+                        </p>
+                        <a href="classSelect.html">Invite members by class</a>
+                    </details>
+                </td>
+            </tr>
+        </table>
+
+        <p style="text-align: center; font-size: 24px;">Save changes?</p>
+        <p style="text-align: center;">
+            <button type="submit" style="background-color: #4285f4; border: 1px solid #777; border-radius: 10px; padding: 15px 32px; font-size: 20px;">Save &amp; Exit</button>
+        </p>
+    </form>
+</body>
+</html>

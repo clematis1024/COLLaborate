@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COLLaborate - Group Chat</title>
+</head>
+<body>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top"><a href="group.html">&#8592; Back</a></td>
+            <td align="center" valign="top"><h1>Group: The Silly Goobers</h1></td>
+            <td align="right" valign="top">
+                <p>Logged in as: dxkvse@rit.edu</p>
+                <a href="accountManage.html">
+                    <img src="pfp.png" alt="Account" width="100">
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div style="width: 80%; margin: auto; padding: 20px; border: 1px solid #777; background-color: #eee;">
+        <div style="min-height: 350px;">
+            <p style="display: inline-block; margin: 0; padding: 15px; border: 1px solid #777; border-radius: 10px; background-color: white;">When is the project due?</p>
+            <p>Alex Smith</p>
+            <p style="display: inline-block; margin: 0; padding: 15px; border: 1px solid #777; border-radius: 10px; background-color: white;">Idk bro</p>
+            <p>John Smith</p>
+        </div>
+
+        <form action="groupChat.html" method="GET" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+            <label for="message">Message:</label>
+            <input type="text" id="message" name="message" placeholder="Type a message..." required style="flex: 1; min-width: 120px; padding: 15px; border: 1px solid #777; border-radius: 10px; font-size: 20px;">
+            <button type="submit" style="background-color: #4285f4; border: 1px solid #777; border-radius: 10px; padding: 15px; font-size: 20px;">Send &#8594;</button>
+        </form>
+    </div>
+</body>
+</html>
